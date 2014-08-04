@@ -1,0 +1,13 @@
+{
+    "sistema": {
+        "diretorioRaiz": "/sistemaos",
+        "baseController": {
+            "classe": "\\App\\Controllers\\IndexController",
+            "index": "indexAction",
+            "erro404": "erro404",
+            "erro400": "erro400",
+            "erro500": "erro500"
+
+        }
+    }
+}

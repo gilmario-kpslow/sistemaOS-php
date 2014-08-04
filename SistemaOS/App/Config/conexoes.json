@@ -1,0 +1,11 @@
+{
+    "conexoes": [
+        {
+            "identificador": "Mysql",
+            "driver": "mysql",
+            "host": "localhost",
+            "dbname": "caucaia",
+            "username": "root",
+            "password": "root"
+        }]
+}
