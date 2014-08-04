@@ -4,8 +4,6 @@ namespace App\Models;
 
 use jaspion\Models\Model;
 
-;
-
 /**
  * Description of Usuario
  *
@@ -26,14 +24,14 @@ class Usuario extends Model {
     private $nome;
 
     /**
-     * @formName=usuario
-     * @columnDb=usuario
+     * @formName=senha
+     * @columnDb=senha
      */
     private $senha;
 
     /**
-     * @formName=senha
-     * @columnDb=senha
+     * @formName=ativo
+     * @columnDb=ativo
      */
     private $ativo;
 
@@ -42,5 +40,45 @@ class Usuario extends Model {
      * @columnDb=administrador
      */
     private $administrador;
+
+    public function getUsuario() {
+        return $this->usuario;
+    }
+
+    public function getNome() {
+        return $this->nome;
+    }
+
+    public function getSenha() {
+        return $this->senha;
+    }
+
+    public function getAtivo() {
+        return $this->ativo;
+    }
+
+    public function getAdministrador() {
+        return $this->administrador;
+    }
+
+    public function setUsuario($usuario) {
+        $this->usuario = $usuario;
+    }
+
+    public function setNome($nome) {
+        $this->nome = $nome;
+    }
+
+    public function setSenha($senha) {
+        $this->senha = $senha;
+    }
+
+    public function setAtivo($ativo) {
+        $this->ativo = $ativo;
+    }
+
+    public function setAdministrador($administrador) {
+        $this->administrador = $administrador;
+    }
 
 }
