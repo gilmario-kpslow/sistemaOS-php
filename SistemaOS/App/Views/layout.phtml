@@ -3,57 +3,43 @@
     <header>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Demo - Projeto com Jaspion</title>
-        <?= $this->css('bootstrap-theme.min') ?>"
-        <?= $this->css('bootstrap.min') ?>
-        <?= $this->css('padrao') ?>
+        <title>SistemaOS - Firetech</title>
+        <?= $this->css('bootstrap-theme.min'); ?>
+        <?= $this->css('bootstrap.min'); ?>
+        <?= $this->css('padrao'); ?>
     </header>
 
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <nav class="navbar" role="navigation">
             <ul class="nav navbar-nav">
-                <li><a><span class="glyphicon glyphicon-globe"></span> <span class="h4">Jaspion Demo</span></a></li>
+                <li><a><span class="glyphicon glyphicon-globe"></span> <span class="h4">SistemaOS</span></a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="<?= $this->link("/cardgame"); ?>"><span>Card Game</span></a></li>
+                <li><a href="<?= $this->link(""); ?>"><span>Inicio</span></a></li>
             </ul>
             <ul class="nav navbar-nav">
-                <li><a href="<?= $this->link("/criadorcarta"); ?>"><span>Game Creator</span></a></li>
+                <li><a href="<?= $this->link("/marca"); ?>"><span>Marca</span></a></li>
             </ul>
         </nav>
-        <div style="margin-top: 50px;">
-            <div class="panel panel-danger">
-                <div class="panel-heading "><span class="panel-title">Jaspion Framework Demo</span></div>
-                <div class="panel-body" style="min-height: 500px;">
-                    <div class='alerta'>
-                        <?php echo $this->view->mensagem; ?>
-                    </div>
-                    <?php $this->content(); ?>
-                </div>
-                <div class="panel-footer">
-                    <div class="text-center small">
-                        Desenvolvido Por
-                        <span class="glyphicon glyphicon-fire"></span> Gilmario Software -
-                        <span class="glyphicon glyphicon-glass"></span> Antonio Allan -
-                        todos os direitos reservados <span class="glyphicon glyphicon-random"></span>
-                    </div>
-                </div>
+
+        <div class="row">
+            <div class="col-lg-10">
+                <?php $this->content(); ?>
             </div>
         </div>
-
         <div class="modal fade modal_info">
             <div class="modal-dialog modal-sm">
                 <div class="modal-content">
-                    <div class="modal-header bg-success text-center" id="tipo_men">
-                        <h3 class="modal-title text-center"><span id="titulo_men"> </span></h3>
+                    <div class="modal-header" id="men-tipo">
+                        <h3 class="modal-title text-center"><span id="men-titulo"></span></h3>
                     </div>
                     <div class="modal-body">
-                        <div id="informacao_men"></div>
+                        <div id="men-informacao"></div>
                     </div>
                     <div class="modal-footer">
                         <div class="row">
-                            <div class="col-lg-12 form-group">
-                                <div class="col-lg-12">
+                            <div class="form-group">
+                                <div class="col-lg-4">
                                     <button class="btn btn-primary form-control" onclick="$('.modal_info').modal('hide');">OK</button>
                                 </div>
                             </div>
@@ -64,9 +50,9 @@
         </div>
 
         <div id="erro"></div>
-        <?= $this->js('jquery-1.10.2.min') ?>
-        <?= $this->js('bootstrap.min') ?>
-        <?= $this->js('functions') ?>
-        <?php $this->scripts(); ?>
+        <?= $this->js('jquery-1.10.2.min'); ?><br/>
+        <?= $this->js('bootstrap.min'); ?><br/>
+        <?= $this->js('functions'); ?><br/>
+        <?php $this->scripts(); ?><br/>
     </body>
 </html>

@@ -1,22 +1,22 @@
-mensagemInfo = (function(men, titulo) {
-    criaMensagem(men, "bg-info", titulo);
+mensagemInfo = (function(men) {
+    criaMensagem(men, "bg-info", "Informação");
 });
-mensagemSuccesso = (function(men, titulo) {
-    criaMensagem(men, "bg-success", titulo);
+mensagemSuccesso = (function(men) {
+    criaMensagem(men, "bg-success", "Sucesso");
 });
-mensagemErro = (function(men, titulo) {
-    criaMensagem(men, "bg-danger", titulo);
+mensagemErro = (function(men) {
+    criaMensagem(men, "bg-danger", "Erro");
 });
 
-mensagemAlerta = (function(men, titulo) {
-    criaMensagem(men, "bg-warning", titulo);
+mensagemAlerta = (function(men) {
+    criaMensagem(men, "bg-warning", "Atenção");
 });
 
 criaMensagem = (function(mensagem, tipo, titulo) {
-    $("#titulo_men").html(titulo);
-    $("#informacao_men").html(mensagem);
-    $("#tipo_men").attr("class", "");
-    $("#tipo_men").addClass("modal-header");
-    $("#tipo_men").addClass(tipo);
+    $("#men-titulo").html(titulo);
+    $("#men-informacao").html(mensagem);
+    $("#men-tipo").attr("class", "");
+    $("#men-tipo").addClass("modal-header");
+    $("#men-tipo").addClass(tipo);
     $(".modal_info").modal("show");
 });
