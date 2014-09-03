@@ -5,13 +5,13 @@ namespace App\Controllers;
 use jaspion\Controllers\Controller;
 
 /**
- * @secured=true
+ * @secured
  *
  *
  */
-class IndexController extends Controller {
+class InicioController extends Controller {
 
-    public function indexAction() {
+    public function inicioAction() {
         $this->render('index');
     }
 

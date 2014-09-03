@@ -9,31 +9,25 @@ use jaspion\Models\Model;
  *
  * @author gilmario
  */
-class GrupoEquipamento extends Model {
+class Grupo extends Model {
 
     /**
      * @formName=id
      * @columnDb=id
      */
-    private $id;
+    protected $id;
 
     /**
      * @formName=nome
      * @columnDb=nome
      */
-    private $nome;
-
-    /**
-     * @formName=abreviacao
-     * @columnDb=abreviacao
-     */
-    private $abreviacao;
+    protected $nome;
 
     /**
      * @formName=descricao
      * @columnDb=descricao
      */
-    private $descricao;
+    protected $descricao;
 
     public function getId() {
         return $this->id;

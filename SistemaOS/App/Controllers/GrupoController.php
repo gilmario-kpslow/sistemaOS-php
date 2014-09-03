@@ -3,38 +3,37 @@
 namespace App\Controllers;
 
 use jaspion\Controllers\Controller;
-use App\DAO\MarcaDAO;
-use \App\Models\Marca;
+use App\DAO\GrupoDAO;
+use App\Models\Grupo;
 
 /**
- * Description of MarcaController
+ * Description of GrupoController
  *
  * @author gilmario
  */
-class MarcaController extends Controller {
+class GrupoController extends Controller {
 
     private $dao;
 
     public function __construct() {
         parent::__construct();
-        $this->dao = new MarcaDAO();
+        $this->dao = new GrupoDAO();
     }
 
     public function inicioAction() {
-        $this->addScript("marca");
         $this->render("index");
     }
 
     public function salvarAction() {
-        $marca = new Marca();
-        $marca->popularForm($_POST);
-        $this->dao->salvar($marca);
+        $grupo = new Grupo();
+        $grupo->popularForm($_POST);
+        $this->dao->salvar($grupo);
         $this->mensagem("Registro salvo com sucesso!");
         $this->render("index");
     }
 
     public function consultarAction() {
-        $this->view->marcas = $this->dao->listar();
+        $this->view->grupos = $this->dao->listar();
         $this->render("consulta");
     }
 

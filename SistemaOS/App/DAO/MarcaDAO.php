@@ -13,7 +13,7 @@ use App\Models\Marca;
 class MarcaDAO extends DAO {
 
     public function __construct() {
-        parent::__construct("Mysql", new Marca(), "Marca");
+        parent::__construct("Mysql", new Marca(), "marca");
     }
 
 }

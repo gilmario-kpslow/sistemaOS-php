@@ -15,13 +15,13 @@ class Marca extends Model {
      * @formName=id
      * @columnDb=id
      */
-    private $id;
+    protected $id;
 
     /**
      * @formName=nome
      * @columnDb=nome
      */
-    private $nome;
+    protected $nome;
 
     public function getId() {
         return $this->id;
