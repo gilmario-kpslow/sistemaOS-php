@@ -3,7 +3,7 @@
 namespace App\DAO;
 
 use jaspion\DAO\DAO;
-use App\Models\Usuario;
+use App\Container\UsuarioContainer;
 
 /**
  * Description of UsuarioDAO
@@ -13,7 +13,7 @@ use App\Models\Usuario;
 class UsuarioDAO extends DAO {
 
     public function __construct() {
-        parent::__construct("Mysql", new Usuario(), "usuario");
+        parent::__construct("Mysql", new UsuarioContainer(), "usuario");
     }
 
 }

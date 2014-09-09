@@ -12,18 +12,14 @@
     <body>
         <div class="navbar navbar-inverse" role="navigation">
             <ul class="nav navbar-nav">
-                <li><a><span class="glyphicon glyphicon-globe"></span> <span class="h4">SistemaOS</span></a></li>
-                <li><a href="<?= $this->link(""); ?>"><span>Inicio</span></a></li>
-                <li><a href="<?= $this->link("/marca"); ?>"><span>Marca</span></a></li>
-                <li><a href="<?= $this->link("/marca/consultar"); ?>"><span>Listar</span></a></li>
-                <li><a href="<?= $this->link("/grupo"); ?>"><span>Grupo</span></a></li>
-                <li><a href="<?= $this->link("/grupo/consultar"); ?>"><span>Listar Grupo</span></a></li>
+                <li><a href="<?= $this->link(""); ?>"><span class="glyphicon glyphicon-globe"></span> <span class="h4">SistemaOS</span></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Cadastros Básicos<b class="caret"></b></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Action</a></li>
+                        <li><a href="<?= $this->link("/marca"); ?>"><span>Marca</span></a></li>
+                        <li><a href="<?= $this->link("/grupo"); ?>"><span>Grupo</span></a></li>
+                        <li><a href="<?= $this->link("/usuario"); ?>"><span>Usuário</span></a></li>
+                        <li><a href="<?= $this->link("/equipamento"); ?>"><span>Equipamento</span></a></li>
                     </ul>
                 </li>
             </ul>

@@ -3,7 +3,7 @@
 namespace App\DAO;
 
 use jaspion\DAO\DAO;
-use App\Models\Grupo;
+use App\Container\GrupoContainer;
 
 /**
  * Description of GrupoDAO
@@ -13,7 +13,7 @@ use App\Models\Grupo;
 class GrupoDAO extends DAO {
 
     public function __construct() {
-        parent::__construct("Mysql", new Grupo(), "grupo");
+        parent::__construct("Mysql", new GrupoContainer(), "grupo");
     }
 
 }

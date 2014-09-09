@@ -9,7 +9,7 @@
 namespace App\Controllers;
 
 use App\DAO\UsuarioDAO;
-use App\Models\Usuario;
+use App\Container\UsuarioContainer;
 use jaspion\Controllers\Controller;
 
 /**
@@ -20,19 +20,31 @@ use jaspion\Controllers\Controller;
 class UsuarioController extends Controller {
 
     private $dao;
+    private $container;
 
     public function __construct() {
         parent::__construct();
         $this->dao = new UsuarioDAO();
+        $this->container = new UsuarioContainer();
     }
 
     public function inicioAction() {
+        $this->view->usuarios = $this->dao->listar();
         $this->render("index");
     }
 
+    public function cadastroAction() {
+        $this->render("cadastro");
+    }
+
     public function salvarAction() {
-        if (isset($_POST['acao'])) {
-            
+        if (!empty($_POST)) {
+            $usuario = $this->container->popularForm($_POST);
+            $this->dao->salvar($usuario);
+            $this->mensagem("Usuario cadastrado");
+            $this->inicioAction();
+        } else {
+            $this->cadastroAction();
         }
     }
 

@@ -2,14 +2,12 @@
 
 namespace App\Models;
 
-use jaspion\Models\Model;
-
 /**
  * Description of Marca
  *
  * @author gilmario
  */
-class Marca extends Model {
+class Marca {
 
     /**
      * @formName=id

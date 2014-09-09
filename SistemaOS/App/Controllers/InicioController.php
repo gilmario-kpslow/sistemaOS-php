@@ -20,7 +20,7 @@ class InicioController extends Controller {
     }
 
     public function erro500($ex = null) {
-        $this->view->erro = $ex;
+        $this->view->ex = $ex;
         $this->render("erro500");
     }
 

@@ -4,7 +4,7 @@ namespace App\Controllers;
 
 use jaspion\Controllers\Controller;
 use App\DAO\GrupoDAO;
-use App\Models\Grupo;
+use App\Container\GrupoContainer;
 
 /**
  * Description of GrupoController
@@ -14,22 +14,27 @@ use App\Models\Grupo;
 class GrupoController extends Controller {
 
     private $dao;
+    private $container;
 
     public function __construct() {
         parent::__construct();
         $this->dao = new GrupoDAO();
+        $this->container = new GrupoContainer();
     }
 
     public function inicioAction() {
+        $this->consultarAction();
+    }
+
+    public function cadastroAction() {
         $this->render("index");
     }
 
     public function salvarAction() {
-        $grupo = new Grupo();
-        $grupo->popularForm($_POST);
+        $grupo = $this->container->popularBanco($_POST);
         $this->dao->salvar($grupo);
         $this->mensagem("Registro salvo com sucesso!");
-        $this->render("index");
+        $this->consultarAction();
     }
 
     public function consultarAction() {

@@ -3,7 +3,7 @@
 namespace App\DAO;
 
 use jaspion\DAO\DAO;
-use App\Models\Marca;
+use App\Container\MarcaContainer;
 
 /**
  * Description of MarcaDAO
@@ -13,7 +13,7 @@ use App\Models\Marca;
 class MarcaDAO extends DAO {
 
     public function __construct() {
-        parent::__construct("Mysql", new Marca(), "marca");
+        parent::__construct("Mysql", new MarcaContainer(), "marca");
     }
 
 }

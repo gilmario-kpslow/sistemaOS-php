@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-use jaspion\Models\Model;
-
 /**
  * Description of GrupoEquipamento
  *
  * @author gilmario
  */
-class Grupo extends Model {
+class Grupo {
 
     /**
      * @formName=id
      * @columnDb=id
+     * @EInteiro
      */
     protected $id;
 

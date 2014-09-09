@@ -1,0 +1,46 @@
+<form class="form-horizontal" id="form" action="<?= $this->link('/usuario/salvar'); ?>" method="POST">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="panel-title">Cadastro de Usuario</span>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <input type="hidden" name="usuario" id="id">
+                <div class="col-lg-3">
+                    <span class="label label-default">Nome</span>
+                    <input type="text" id="nome" name="nome" class="form-control" required="true">
+                </div>
+                <div class="col-lg-3">
+                    <span class="label label-default">Senha</span>
+                    <input type="password" id="senha" name="senha" class="form-control" required="true">
+                </div>
+                <div class="col-lg-2">
+                    <span class="label label-default">Ativo</span>
+                    <select class="form-control" id="ativo" name="ativo" required="true">
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <span class="label label-default">É Adm?</span>
+                    <select type="checkbox" id="administrador" name="administrador" class="form-control" required="true">
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-lg-3">
+                    <button type="submit" class="btn btn-success form-control">Salvar</button>
+                </div>
+                <div class="col-lg-3">
+                    <a href="<?= $this->link('/usuario'); ?>" class="btn btn-danger form-control">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+

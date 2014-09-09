@@ -18,7 +18,6 @@ class Propriedade extends Model {
     private $ordem;
 
     /**
-     * @entidade=Equipamento
      * @formName=equipamento
      * @columnDb=equipamento
      */

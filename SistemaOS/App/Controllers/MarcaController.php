@@ -5,6 +5,7 @@ namespace App\Controllers;
 use jaspion\Controllers\Controller;
 use App\DAO\MarcaDAO;
 use \App\Models\Marca;
+use App\Container\MarcaContainer;
 
 /**
  * Description of MarcaController
@@ -14,23 +15,32 @@ use \App\Models\Marca;
 class MarcaController extends Controller {
 
     private $dao;
+    private $container;
 
     public function __construct() {
         parent::__construct();
         $this->dao = new MarcaDAO();
+        $this->container = new MarcaContainer();
     }
 
     public function inicioAction() {
+        $this->consultarAction();
+    }
+
+    public function cadastroAction() {
         $this->addScript("marca");
         $this->render("index");
     }
 
     public function salvarAction() {
-        $marca = new Marca();
-        $marca->popularForm($_POST);
-        $this->dao->salvar($marca);
-        $this->mensagem("Registro salvo com sucesso!");
-        $this->render("index");
+        if (!empty($_POST)) {
+            $marca = $this->container->popularForm($_POST);
+            $this->dao->salvar($marca);
+            $this->mensagem("Registro salvo com sucesso!");
+            $this->consultarAction();
+        } else {
+            $this->cadastroAction();
+        }
     }
 
     public function consultarAction() {

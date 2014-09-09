@@ -19,7 +19,7 @@ class Equipamento extends Model {
 
     /**
      * @formName=numeroSerie
-     * @columnDb=numeroSerie
+     * @columnDb=numero_serie
      */
     private $numeroSerie;
 
@@ -49,11 +49,11 @@ class Equipamento extends Model {
     private $marca;
 
     /**
-     * @entidade=GrupoEquipamento
-     * @formName=grupoEquipamento
-     * @columnDb=grupoEquipamento
+     * @entidade=Grupo
+     * @formName=grupo
+     * @columnDb=grupo
      */
-    private $grupoEquipamento;
+    private $grupo;
 
     public function getId() {
         return $this->id;
@@ -79,8 +79,12 @@ class Equipamento extends Model {
         return $this->marca;
     }
 
-    public function getGrupoEquipamento() {
-        return $this->grupoEquipamento;
+    public function getGrupo() {
+        return $this->grupo;
+    }
+
+    public function setGrupo($grupo) {
+        $this->grupo = $grupo;
     }
 
     public function setId($id) {
@@ -105,10 +109,6 @@ class Equipamento extends Model {
 
     public function setMarca($marca) {
         $this->marca = $marca;
-    }
-
-    public function setGrupoEquipamento($grupoEquipamento) {
-        $this->grupoEquipamento = $grupoEquipamento;
     }
 
 }
