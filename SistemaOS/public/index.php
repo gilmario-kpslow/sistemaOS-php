@@ -6,11 +6,24 @@ ini_set('error_log', '/home/gilmario/error_log.txt');
 error_reporting(E_ALL);
 require_once '../vendor/autoload.php';
 
-use App\Models\Usuario;
-use jaspion\Util\AnotacaoUtil;
+//use App\Models\Usuario;
+//use jaspion\Util\AnotacaoUtil;
+//session_start();
+//$init = new jaspion\Init\Jaspion();
+$classe = new \App\Models\Usuario();
+$valor = "TESTE";
+$array = array();
+$array[] = $valor;
+$array[] = $classe;
+$array[] = $valor;
+$array[] = $classe;
+$array[] = $classe;
+$array[] = $array;
 
-session_start();
-$init = new jaspion\Init\Jaspion();
+
+//echo \jaspion\Util\JSonUtil::criaJson("json", $classe);
+echo \jaspion\Util\JSonUtil::criaJson("array", $array);
+//echo \jaspion\Util\JSonUtil::criaJson("variavel", $valor);
 
 
 

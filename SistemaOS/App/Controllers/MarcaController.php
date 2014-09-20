@@ -27,8 +27,11 @@ class MarcaController extends Controller {
         $this->consultarAction();
     }
 
-    public function cadastroAction() {
+    public function cadastroAction($id = null) {
         $this->addScript("marca");
+        if ($id) {
+            editar($id);
+        }
         $this->render("index");
     }
 

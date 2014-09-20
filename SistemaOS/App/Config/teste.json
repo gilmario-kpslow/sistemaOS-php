@@ -1,0 +1,70 @@
+{
+    "array": [{
+            "0": "TESTE"
+        },
+        {
+            "1": {
+                "usuario": "",
+                "nome": "",
+                "senha": "",
+                "ativo": "",
+                "administrador": ""
+            }
+        },
+        {
+            "2": "TESTE"
+        },
+        {
+            "3": {
+                "usuario": "",
+                "nome": "",
+                "senha": "",
+                "ativo": "",
+                "administrador": ""
+            }
+        },
+        {
+            "4": {
+                "usuario": "",
+                "nome": "",
+                "senha": "",
+                "ativo": "",
+                "administrador": ""
+            }
+        },
+        {
+            "5": [{
+                    "0": "TESTE"
+                },
+                {
+                    "1": {
+                        "usuario": "",
+                        "nome": "",
+                        "senha": "",
+                        "ativo": "",
+                        "administrador": ""
+                    }
+                },
+                {
+                    "2": "TESTE"
+                },
+                {
+                    "3": {
+                        "usuario": "",
+                        "nome": "",
+                        "senha": "",
+                        "ativo": "",
+                        "administrador": ""
+                    }
+                },
+                {
+                    "4": {
+                        "usuario": "",
+                        "nome": "",
+                        "senha": "",
+                        "ativo": "",
+                        "administrador": ""
+                    }
+                }]
+        }]
+}

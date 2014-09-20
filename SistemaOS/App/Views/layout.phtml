@@ -24,11 +24,9 @@
                 </li>
             </ul>
         </div>
-
-        <div class="row">
-            <div class="col-lg-10">
-                <?php $this->content(); ?>;
-            </div>
+        <div class="container">
+            <?= $this->view->mensagem; ?>
+            <?php $this->content(); ?>
         </div>
         <div class="modal fade modal_info">
             <div class="modal-dialog modal-sm">
