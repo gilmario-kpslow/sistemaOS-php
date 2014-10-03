@@ -21,12 +21,17 @@
                             <th>
                                 Nome
                             </th>
-                        </tr>
+                            <th class="text-center">
+                                Ação
+                            </th>
+                        </tr >
                     </thead>
                     <tbody>
                         <?php
                         foreach ($this->view->marcas as $marca) {
-                            echo "<tr><td>{$marca->getId()}</td><td>{$marca->getNome()}</td></tr>";
+                            echo "<tr><td>{$marca->getId()}</td><td>{$marca->getNome()}</td>";
+                            echo "<td class='text-center'><a href='#' onclick='editar({$marca->getId()});' class='glyphicon glyphicon-pencil'></a>";
+                            echo "<a href='#' onclick='excluir({$marca->getId()});' class='glyphicon glyphicon-trash'></a></td></tr>";
                         }
                         ?>
 
@@ -37,4 +42,32 @@
 
     </div>
 </div>
-
+<form id="form_acao" method="POST">
+    <input id="id" type="hidden" name="id_marca"/>
+    <input id="acao_excluir" type="hidden" value="<?= $this->link('/marca/excluir') ?>"/>
+    <input id="acao_editar" type="hidden" value="<?= $this->link('/marca/cadastro') ?>"/>
+    <div class="modal fade modal_info" id="confirma">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title text-center"><span id="mensagem_dialog"></span></h3>
+                </div>
+                <div class="modal-body">
+                    <span id="mensagem_informacao"></span>
+                </div>
+                <div class="modal-footer">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary form-control" type="submit"> SIM</button>
+                            </div>
+                            <div class="col-lg-4">
+                                <button class="btn btn-primary form-control" type="button" onclick="cancelar();"> NÃO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

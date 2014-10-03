@@ -15,4 +15,8 @@ class UsuarioContainer extends ModelContainer {
         parent::__construct(Usuario::class);
     }
 
+    public function getTable() {
+        return "usuario";
+    }
+
 }

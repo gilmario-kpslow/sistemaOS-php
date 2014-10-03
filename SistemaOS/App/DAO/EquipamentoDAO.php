@@ -13,7 +13,7 @@ use App\Container\EquipamentoContainer;
 class EquipamentoDAO extends DAO {
 
     public function __construct() {
-        parent::__construct("Mysql", new EquipamentoContainer(), "equipamento");
+        parent::__construct("Mysql", new EquipamentoContainer());
     }
 
 }

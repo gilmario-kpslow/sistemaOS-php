@@ -9,7 +9,7 @@ use jaspion\Models\Model;
  *
  * @author gilmario
  */
-class Cliente extends Model {
+class Cliente {
 
     /**
      * @formName=id

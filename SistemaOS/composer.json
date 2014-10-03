@@ -29,6 +29,6 @@
         }
     ],
     "require": {
-        "jaspion": "dev-master"
+        "jaspion": "dev-container"
     }
 }

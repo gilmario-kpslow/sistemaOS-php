@@ -15,4 +15,8 @@ class EquipamentoContainer extends ModelContainer {
         parent::__construct(Equipamento::class);
     }
 
+    public function getTable() {
+        return "equipamento";
+    }
+
 }

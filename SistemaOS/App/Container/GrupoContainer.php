@@ -16,4 +16,8 @@ class GrupoContainer extends ModelContainer {
         parent::__construct(Grupo::class);
     }
 
+    public function getTable() {
+        return "grupo";
+    }
+
 }

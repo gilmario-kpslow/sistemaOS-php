@@ -16,4 +16,8 @@ class MarcaContainer extends ModelContainer {
         parent::__construct(Marca::class);
     }
 
+    public function getTable() {
+        return "marca";
+    }
+
 }
