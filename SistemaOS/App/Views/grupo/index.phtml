@@ -5,14 +5,14 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <input type="hidden" name="id" id="id">
+                <input type="hidden" name="id_objeto" id="id" value="<?= $this->escreve("objeto", "getId"); ?>"/>
                 <div class="col-lg-3">
                     <span class="label label-default">Nome</span>
-                    <input type="text" id="nome" name="nome" class="form-control" required="true">
+                    <input type="text" id="nome" name="nome" class="form-control" value="<?= $this->escreve("objeto", "getNome"); ?>"  required="true"/>
                 </div>
                 <div class="col-lg-3">
                     <span class="label label-default">Descrição</span>
-                    <input type="text" id="descricao" name="descricao" class="form-control" required="true">
+                    <input type="text" id="descricao" name="descricao" class="form-control" value="<?= $this->escreve("objeto", "getDescricao"); ?>" required="true"/>
                 </div>
             </div>
         </div>
@@ -28,5 +28,3 @@
         </div>
     </div>
 </form>
-
-

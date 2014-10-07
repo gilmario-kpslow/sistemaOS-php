@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 
-use jaspion\Controllers\Controller;
+use App\Controllers\BaseController;
 use App\DAO\GrupoDAO;
 use App\Container\GrupoContainer;
 
@@ -11,35 +11,30 @@ use App\Container\GrupoContainer;
  *
  * @author gilmario
  */
-class GrupoController extends Controller {
-
-    private $dao;
-    private $container;
+class GrupoController extends BaseController {
 
     public function __construct() {
-        parent::__construct();
-        $this->dao = new GrupoDAO();
-        $this->container = new GrupoContainer();
+        $dao = new GrupoDAO();
+        $container = new GrupoContainer();
+        parent::__construct($dao, $container);
     }
 
-    public function inicioAction() {
-        $this->consultarAction();
+    public function cadastro() {
+        $this->view->objeto = $this->getDao()->carregar(" id = {$_POST['id_objeto']}");
     }
 
-    public function cadastroAction() {
-        $this->render("index");
+    public function salvar() {
+        $grupo = $this->getContainer()->popularForm($_POST);
+        if ($grupo->getId() != '') {
+            $this->getDao()->atualizar($grupo, " id={$grupo->getId()}");
+        } else {
+            $this->getDao()->salvar($grupo);
+        }
     }
 
-    public function salvarAction() {
-        $grupo = $this->container->popularBanco($_POST);
-        $this->dao->salvar($grupo);
-        $this->mensagem("Registro salvo com sucesso!");
-        $this->consultarAction();
-    }
-
-    public function consultarAction() {
-        $this->view->grupos = $this->dao->listar();
-        $this->render("consulta");
+    public function excluir() {
+        $id = $_POST['id_objeto'];
+        $this->getDao()->deletar(" id={$id} ;");
     }
 
 }

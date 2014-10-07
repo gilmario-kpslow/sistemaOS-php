@@ -10,7 +10,7 @@ namespace App\Models;
 class Marca {
 
     /**
-     * @formName=id
+     * @formName=id_objeto
      * @columnDb=id
      */
     protected $id;

@@ -1,47 +1,46 @@
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <div class="panel-header">
-            <span class="panel-title">Usuarios</span>
+<form class="form-horizontal" id="form" action="<?= $this->link('/usuario/salvar'); ?>" method="POST">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <span class="panel-title">Cadastro de Usuario</span>
         </div>
-    </div>
-    <div class="panel-body">
-        <div class="row">
-            <div class="col-lg-2">
-                <a href="<?= $this->link('/usuario/cadastro'); ?>" class="btn btn-info form-control">Novo</a>
+        <div class="panel-body">
+            <div class="row">
+                <input type="hidden" name="usuario" id="id" value="<?= $this->escreve('objeto', 'getUsuario'); ?>"/>
+                <div class="col-lg-3">
+                    <span class="label label-default">Nome</span>
+                    <input type="text" id="nome" name="nome" class="form-control" value="<?= $this->escreve('objeto', 'getNome'); ?>" required="true">
+                </div>
+                <div class="col-lg-3">
+                    <span class="label label-default">Senha</span>
+                    <input type="password" id="senha" name="senha" class="form-control" value="<?= $this->escreve('objeto', 'getSenha'); ?>" required="true">
+                </div>
+                <div class="col-lg-2">
+                    <span class="label label-default">Ativo</span>
+                    <select  class="form-control" id="ativo" name="ativo" required="true"  value="Sim">
+                        <option value="0">Não</option>
+                        <option value="1" >Sim</option>
+                    </select>
+                </div>
+                <div class="col-lg-2">
+                    <span class="label label-default">Adm</span>
+                    <select id="administrador" name="administrador" class="form-control" required="true">
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-lg-12">
-                <table class="table table-condensed table-responsive table-striped table-hover">
-                    <thead class="bg-danger">
-                        <tr>
-                            <th>
-                                Id
-                            </th>
-                            <th>
-                                Nome
-                            </th>
-                            <th>
-                                Adm
-                            </th>
-                            <th>
-                                Ativo
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        foreach ($this->view->usuarios as $usuario) {
-                            echo "<tr><td>{$usuario->getUsuario()}</td><td>{$usuario->getNome()}</td>" .
-                            "<td>{$usuario->getAdministrador()}</td>" .
-                            "<td>{$usuario->getAtivo()}</td></tr>";
-                        }
-                        ?>
+        <div class="panel-footer">
+            <div class="row">
+                <div class="col-lg-3">
+                    <button type="submit" class="btn btn-success form-control">Salvar</button>
+                </div>
+                <div class="col-lg-3">
+                    <a href="<?= $this->link('/usuario'); ?>" class="btn btn-danger form-control">Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
 

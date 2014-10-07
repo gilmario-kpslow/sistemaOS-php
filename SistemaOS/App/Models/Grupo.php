@@ -10,7 +10,7 @@ namespace App\Models;
 class Grupo {
 
     /**
-     * @formName=id
+     * @formName=id_objeto
      * @columnDb=id
      * @EInteiro
      */

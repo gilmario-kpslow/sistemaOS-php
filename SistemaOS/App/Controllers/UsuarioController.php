@@ -8,44 +8,39 @@
 
 namespace App\Controllers;
 
+use App\Controllers\BaseController;
 use App\DAO\UsuarioDAO;
 use App\Container\UsuarioContainer;
-use jaspion\Controllers\Controller;
 
 /**
  * Description of UsuarioController
  *
  * @author gilmario
  */
-class UsuarioController extends Controller {
-
-    private $dao;
-    private $container;
+class UsuarioController extends BaseController {
 
     public function __construct() {
-        parent::__construct();
-        $this->dao = new UsuarioDAO();
-        $this->container = new UsuarioContainer();
+        $dao = new UsuarioDAO();
+        $container = new UsuarioContainer();
+        parent::__construct($dao, $container);
     }
 
-    public function inicioAction() {
-        $this->view->usuarios = $this->dao->listar();
-        $this->render("index");
+    public function cadastro() {
+        $this->view->objeto = $this->getDao()->carregar(" usuario = {$_POST['id_objeto']}");
     }
 
-    public function cadastroAction() {
-        $this->render("cadastro");
-    }
-
-    public function salvarAction() {
-        if (!empty($_POST)) {
-            $usuario = $this->container->popularForm($_POST);
-            $this->dao->salvar($usuario);
-            $this->mensagem("Usuario cadastrado");
-            $this->inicioAction();
+    public function salvar() {
+        $usuario = $this->getContainer()->popularForm($_POST);
+        if ($usuario->getUsuario() != '') {
+            $this->getDao()->atualizar($usuario, " usuario={$usuario->getUsuario()}");
         } else {
-            $this->cadastroAction();
+            $this->getDao()->salvar($usuario);
         }
+    }
+
+    protected function excluir() {
+        $id = $_POST['id_objeto'];
+        $this->getDao()->deletar(" usuario={$id} ;");
     }
 
 }

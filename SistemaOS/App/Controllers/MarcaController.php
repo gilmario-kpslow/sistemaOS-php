@@ -2,76 +2,39 @@
 
 namespace App\Controllers;
 
-use jaspion\Controllers\Controller;
 use App\DAO\MarcaDAO;
 use App\Container\MarcaContainer;
+use App\Controllers\BaseController;
 
 /**
  * Description of MarcaController
  *
  * @author gilmario
  */
-class MarcaController extends Controller {
-
-    private $dao;
-    private $container;
+class MarcaController extends BaseController {
 
     public function __construct() {
-        parent::__construct();
-        $this->dao = new MarcaDAO();
-        $this->container = new MarcaContainer();
+        $dao = new MarcaDAO();
+        $container = new MarcaContainer();
+        parent::__construct($dao, $container);
     }
 
-    public function inicioAction() {
-        $this->addScript('marca/marca');
-        $this->consultarAction();
+    public function cadastro() {
+        $this->view->objeto = $this->getDao()->carregar(" id = {$_POST['id_objeto']}");
     }
 
-    public function cadastroAction() {
-        if (!empty($_POST)) {
-            $this->view->marca = $this->dao->carregar(" id = {$_POST['id_marca']}");
-        }
-        $this->render("index");
-    }
-
-    public function salvarAction() {
-        if (!empty($_POST)) {
-            try {
-                $marca = $this->container->popularForm($_POST);
-                if ($marca->getId() != '') {
-                    $this->dao->atualizar($marca, " id={$marca->getId()}");
-                } else {
-                    $this->dao->salvar($marca);
-                }
-                $this->mensagem("Registro salvo com sucesso!");
-                $this->consultarAction();
-            } catch (\Exception $ex) {
-                $this->mensagem($ex->getMessage(), 1);
-                $this->cadastroAction();
-            }
+    public function salvar() {
+        $marca = $this->getContainer()->popularForm($_POST);
+        if ($marca->getId() != '') {
+            $this->getDao()->atualizar($marca, " id={$marca->getId()}");
         } else {
-            $this->cadastroAction();
+            $this->getDao()->salvar($marca);
         }
     }
 
-    public function consultarAction() {
-        $this->addScript('marca/marca');
-        $this->view->marcas = $this->dao->listar();
-        $this->render("consulta");
-    }
-
-    public function excluirAction() {
-        if (!empty($_POST)) {
-            try {
-                $id = $_POST['id_marca'];
-                $this->dao->deletar(" id={$id} ;");
-                $this->mensagem("Registro excluído com sucesso!");
-            } catch (Exception $ex) {
-                $this->mensagem($ex->getMessage(), 1);
-                $this->consultarAction();
-            }
-        }
-        $this->consultarAction();
+    public function excluir() {
+        $id = $_POST['id_objeto'];
+        $this->getDao()->deletar(" id={$id} ;");
     }
 
 }

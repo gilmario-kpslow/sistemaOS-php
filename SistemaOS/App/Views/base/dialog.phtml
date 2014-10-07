@@ -1,0 +1,26 @@
+<form id="form_acao" method="POST">
+    <input id="id" type="hidden" name="id_objeto"/>
+    <div class="modal fade modal_info" id="confirma">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header bg-success">
+                    <h3 class="modal-title text-center"><span id="mensagem_dialog"></span></h3>
+                </div>
+                <div class="modal-body">
+                    <span id="mensagem_informacao"></span>
+                </div>
+                <div class="modal-footer bg-warning">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <button class="btn btn-info form-control" type="submit"> SIM</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button class="btn btn-danger form-control" type="button" onclick="cancelar();"> NÃO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
